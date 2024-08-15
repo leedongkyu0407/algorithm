@@ -39,7 +39,8 @@ public class Main {
 			int y2 = Integer.parseInt(st.nextToken());
 			int x2 = Integer.parseInt(st.nextToken());
 			
-			sb.append(board[y2][x2]-board[y2][x1-1] - board[y1-1][x2] + board[y1-1][x1-1]).append("\n");
+			int result = board[y2][x2]-board[y2][x1-1] - board[y1-1][x2] + board[y1-1][x1-1]; 
+			sb.append(result).append("\n");
 		}
 		System.out.println(sb);
 	}
