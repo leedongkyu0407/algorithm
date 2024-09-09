@@ -28,21 +28,22 @@ public class Main {
 	}
 	
 	static int prim(int start, int n) {
-		int cnt = 0;
 		PriorityQueue<Edge> pq = new PriorityQueue<>();
 		pq.add(new Edge(start, 0));
-		cnt += 1;
+//		모든 정점 방문시 종료
+		int cnt = 0;
 		int total = 0;
 //		경로 중 가장 유지비가 큰 길 찾기
 		int maxC = 0;
 		while(!pq.isEmpty()) {
-			if(cnt == n) break;
+			if(cnt == n+1) break;
 			Edge now = pq.poll();
 			int home = now.home;
 			int cost = now.cost;
 			if(visited[home]) continue;
 			
 			visited[home] = true;
+			cnt++;
 			total += cost;
 			maxC = Math.max(maxC, cost);
 			for (Edge nxt : graph[home]) {
