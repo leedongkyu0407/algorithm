@@ -27,14 +27,16 @@ public class Main {
 		}
 	}
 	
-	static int prim(int start) {		
+	static int prim(int start, int n) {
+		int cnt = 0;
 		PriorityQueue<Edge> pq = new PriorityQueue<>();
 		pq.add(new Edge(start, 0));
-		
+		cnt += 1;
 		int total = 0;
 //		경로 중 가장 유지비가 큰 길 찾기
 		int maxC = 0;
 		while(!pq.isEmpty()) {
+			if(cnt == n) break;
 			Edge now = pq.poll();
 			int home = now.home;
 			int cost = now.cost;
@@ -71,6 +73,6 @@ public class Main {
 			graph[b].add(new Edge(a, c));
 		}
 		
-		System.out.println(prim(1));
+		System.out.println(prim(1, N));
 	}
 }
