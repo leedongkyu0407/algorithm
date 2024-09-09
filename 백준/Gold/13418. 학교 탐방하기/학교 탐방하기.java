@@ -14,15 +14,15 @@ public class Main {
 		boolean[] visited = new boolean[N+1];
 //		오르막길의 cost = 0이므로 추후 cnt계산을 위해 -1로 시작점 세팅
 		pq.add(new Edge(start, -1));
-		
+		int temp = 0;
 		int cnt = 0;
 		while(!pq.isEmpty()) {
 			Edge now = pq.poll();
-			
+			if(temp == N+1) break;
 			if(visited[now.w]) continue;
 			
 			visited[now.w] = true;
-			
+			temp++;
 //			오르막길이면 cnt++
 			if(now.cost == 0) cnt++;			
 			
